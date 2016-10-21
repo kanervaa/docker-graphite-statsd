@@ -2,10 +2,10 @@ FROM phusion/baseimage:0.9.18
 
 #RUN echo deb http://archive.ubuntu.com/ubuntu $(lsb_release -cs) main universe > /etc/apt/sources.list.d/universe.list
 RUN apt-get -y update\
- && apt-get -y upgrade
+ && apt-get -y --fix-missing upgrade
 
 # dependencies
-RUN apt-get -y --force-yes --fix-missing install vim\
+RUN apt-get -y --force-yes install vim\
  nginx\
  python-dev\
  python-flup\
