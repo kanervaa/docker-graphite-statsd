@@ -1,5 +1,4 @@
 FROM phusion/baseimage:0.9.18
-MAINTAINER Nathan Hopkins <natehop@gmail.com>
 
 #RUN echo deb http://archive.ubuntu.com/ubuntu $(lsb_release -cs) main universe > /etc/apt/sources.list.d/universe.list
 RUN apt-get -y update\
@@ -79,7 +78,7 @@ RUN apt-get clean\
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # defaults
-EXPOSE 80 2003-2004 2023-2024 8125/udp 8126
+EXPOSE 80 2003-2004 2023-2024 8123/udp 8124/udp 8125/udp 8126
 VOLUME ["/opt/graphite/conf", "/opt/graphite/storage", "/etc/nginx", "/opt/statsd", "/etc/logrotate.d", "/var/log"]
 WORKDIR /
 ENV HOME /root
