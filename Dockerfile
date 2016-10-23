@@ -48,6 +48,8 @@ RUN python ./setup.py install
 # install statsd
 RUN git clone -b v0.7.2 https://github.com/etsy/statsd.git /opt/statsd
 ADD conf/opt/statsd/config.js /opt/statsd/config.js
+ADD conf/opt/statsd/config2.js /opt/statsd/config2.js
+ADD conf/opt/statsd/config3.js /opt/statsd/config3.js
 
 # config nginx
 RUN rm /etc/nginx/sites-enabled/default
@@ -67,6 +69,8 @@ ADD conf/etc/service/carbon/run /etc/service/carbon/run
 ADD conf/etc/service/carbon-aggregator/run /etc/service/carbon-aggregator/run
 ADD conf/etc/service/graphite/run /etc/service/graphite/run
 ADD conf/etc/service/statsd/run /etc/service/statsd/run
+ADD conf/etc/service/statsd/run /etc/service/statsd2/run
+ADD conf/etc/service/statsd/run /etc/service/statsd3/run
 ADD conf/etc/service/nginx/run /etc/service/nginx/run
 
 # default conf setup
