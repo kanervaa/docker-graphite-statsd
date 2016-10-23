@@ -69,8 +69,8 @@ ADD conf/etc/service/carbon/run /etc/service/carbon/run
 ADD conf/etc/service/carbon-aggregator/run /etc/service/carbon-aggregator/run
 ADD conf/etc/service/graphite/run /etc/service/graphite/run
 ADD conf/etc/service/statsd/run /etc/service/statsd/run
-ADD conf/etc/service/statsd/run /etc/service/statsd2/run
-ADD conf/etc/service/statsd/run /etc/service/statsd3/run
+ADD conf/etc/service/statsd2/run /etc/service/statsd2/run
+ADD conf/etc/service/statsd3/run /etc/service/statsd3/run
 ADD conf/etc/service/nginx/run /etc/service/nginx/run
 
 # default conf setup
