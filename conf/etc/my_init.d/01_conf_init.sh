@@ -34,3 +34,6 @@ if [[ -z $statsd_dir_contents ]]; then
   cp $conf_dir/opt/statsd/config.js /opt/statsd/config.js
 fi
 
+chmod +x /etc/service/statsd/run
+chmod +x /etc/service/statsd2/run
+chmod +x /etc/service/statsd3/run
