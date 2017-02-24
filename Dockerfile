@@ -26,7 +26,8 @@ RUN pip install django==1.5.12\
  python-memcached==1.53\
  django-tagging==0.3.1\
  twisted==11.1.0\
- txAMQP==0.6.2
+ txAMQP==0.6.2\
+ pytz
 
 # install graphite
 RUN git clone --depth 1 https://github.com/graphite-project/graphite-web.git /usr/local/src/graphite-web
@@ -57,6 +58,7 @@ ADD conf/etc/nginx/nginx.conf /etc/nginx/nginx.conf
 ADD conf/etc/nginx/sites-enabled/graphite-statsd.conf /etc/nginx/sites-enabled/graphite-statsd.conf
 
 # init django admin
+RUN mkdir -p /usr/local/src/graphite-web/storage/log/webapp/
 ADD conf/usr/local/bin/django_admin_init.exp /usr/local/bin/django_admin_init.exp
 RUN /usr/local/bin/django_admin_init.exp
 
