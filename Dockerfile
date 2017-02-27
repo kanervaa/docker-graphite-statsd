@@ -60,9 +60,12 @@ ADD conf/etc/nginx/nginx.conf /etc/nginx/nginx.conf
 ADD conf/etc/nginx/sites-enabled/graphite-statsd.conf /etc/nginx/sites-enabled/graphite-statsd.conf
 
 # init django admin
-RUN mkdir -p /usr/local/src/graphite-web/storage/log/webapp/
-ADD conf/usr/local/bin/django_admin_init.exp /usr/local/bin/django_admin_init.exp
-RUN /usr/local/bin/django_admin_init.exp
+#RUN mkdir -p /usr/local/src/graphite-web/storage/log/webapp/
+#ADD conf/usr/local/bin/django_admin_init.exp /usr/local/bin/django_admin_init.exp
+#RUN /usr/local/bin/django_admin_init.exp
+RUN mkdir -p /var/log/graphite
+RUN export PYTHONPATH="/opt/graphite/webapp"
+RUN django-admin migrate --settings=graphite.settings --run-server
 
 # logging support
 RUN mkdir -p /var/log/carbon /var/log/graphite /var/log/nginx
